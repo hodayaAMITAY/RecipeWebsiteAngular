@@ -1,0 +1,7 @@
+.ng-invalid.ng-touched:not(form)  {
+    border: 1.5px solid red;
+  }
+  label{
+      font-size: 20px;
+      font-weight: bold;
+  }

@@ -1,0 +1,27 @@
+
+<!-- <ng-container *ngIf="arive">
+<form>
+<select *ngFor="let c of categoreyList">
+    <option type="text" [value]="c.code" #categorey name="categorey">{{c.name}}</option>
+</select>
+</form>
+</ng-container> -->
+<h1>{{r.recipeName}}</h1>
+
+קטגוריה:<br><select [(ngModel)]="r.recipeCategory"> 
+    <option *ngFor="let x of categoryArr" >{{x.name}}</option>
+    </select><br>
+זמן הכנה בדקות:<input type="number" [(ngModel)]="r.time"><br>
+רמה :<input type="number" [(ngModel)]="r.level"><br>
+הוספת תמונה:<input type="file" [(ngModel)]="r.picture"><br>
+מצרכים:<div id="product">
+    <div *ngFor="let x of r.listIngrediens;let n=index;trackBy:trackByFn">     
+    <input type="text" (input)="addRowIngridience(n)" [(ngModel)]="r.listIngrediens[n]" >
+</div></div><br>
+
+הוראות הכנה:<div id="tomake">
+<div *ngFor="let x of r.make;let i=index;trackBy:trackByFn">     
+<input type="text" (input)="addsomthing(i)" [(ngModel)]="r.make[i]" >
+</div></div><br>
+<input type="button" value="עריכת מתכון" (click)="eddit333()">
+

@@ -1,0 +1,61 @@
+
+<!-- קוד:<input type="text" [(ngModel)]="code" >
+<br>
+שם:<input type="text" [(ngModel)]="name" ><br>
+כתובת:<input type="text" [(ngModel)]="adrees" ><br>
+סיסמה:<input type="text" [(ngModel)]="pasword" ><br>
+מייל:<input type="text" [(ngModel)]="mail" ><br>
+<button (click)="insert()">הרשם</button><br> -->
+
+<form #registerForm="ngForm" (ngSubmit)="onSubmit()" style="font-size: 19px;
+font-weight: bold;" >
+   
+        <div >
+    <label>שם משתמש</label><br>
+            <input type="text"  id="code" name="code" #newcode="ngModel"required [(ngModel)]="code"
+            minlength="10" maxlength="14" pattern="[a-zA-Z0-9]*" #ft01>
+            <div *ngIf="newcode.errors&&(newcode.dirty||newcode.touched)">
+                <div [hidden]="!newcode.errors.required">זהו שדה חובה</div>
+                <div [hidden]="!newcode.errors.minlength">יש להקיש מינימום 10 תווים</div>
+                <div [hidden]="!newcode.errors.maxlength">יש להקיש מקסימום 14 תווים</div>
+                <div [hidden]="!newcode.errors.pattern">יש להקיש אותיות אנגלית</div>
+            </div>
+        </div>
+        <label> שם מלא</label><br>
+        <div>
+            <input type="text"  #newname="ngModel" id="name" name="name" required [(ngModel)]="name">
+            <div *ngIf="newname.errors&&(newname.dirty||newname.touched)">
+                <div [hidden]="!newname.errors.required">זהו שדה חובה</div>
+            </div>
+        </div>
+        <label>כתובת</label><br>
+        <div>
+            <input type="text"  #newaddress="ngModel" id="address" name="address" required
+                [(ngModel)]="address">
+            <div *ngIf="newaddress.errors&&(newaddress.dirty||newaddress.touched)">
+                <div [hidden]="!newaddress.errors.required">זהו שדה חובה</div>
+            </div>
+        </div>
+        <label>דוא"ל</label><br>
+        <div>
+            <input type="mail"  #newemail="ngModel" id="mail" name="mail" required  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                [(ngModel)]="mail">
+            <div *ngIf="newemail.errors&&(newemail.dirty||newemail.touched)">
+                <div [hidden]="!newemail.errors.required">זהו שדה חובה</div>
+                <div [hidden]="!newemail.errors.pattern">תבנית מייל</div>
+            </div>
+        </div>
+        <label>סיסמא</label><br>
+        <div>
+            <input type="pasword"  #newpass1="ngModel" id="pasword" name="pasword" required [(ngModel)]="pasword"
+            minlength="6" maxlength="16" pattern="[0-9]*">
+            <div *ngIf="newpass1.errors&&(newpass1.dirty||newpass1.touched)">
+                <div [hidden]="!newpass1.errors.required">זהו שדה חובה</div>
+                <div [hidden]="!newpass1.errors.minlength">יש להקיש מינימום 6 תווים</div>
+                <div [hidden]="!newpass1.errors.maxlength">יש להקיש מקסימום 16 תווים</div>
+                <div [hidden]="!newpass1.errors.pattern">יש להקיש ספרות בלבד</div>
+            </div>
+        </div>
+    
+        <input type="submit"#submit value="הרשם" class="button" style="vertical-align:middle">
+    </form>

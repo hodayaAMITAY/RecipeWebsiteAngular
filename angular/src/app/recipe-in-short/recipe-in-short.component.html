@@ -1,0 +1,13 @@
+
+    <div class="stat">
+        <h2><b>{{myrecipenow.recipeName}}</b></h2> 
+    <h2>:זמן הכנה</h2>
+    <h3 style="direction: rtl;">{{myrecipenow.time|filesize}}</h3>
+    <h2>:דרגת קושי</h2>
+    <h3>{{myrecipenow.level}}</h3>
+    <img src="../../assets/{{myrecipenow.picture}}" height="150" width="200"/>
+    <br>
+    <a routerLink={{link}} (click)="check()">הקש למתכון</a>
+    </div>
+    <!DOCTYPE html>
+   

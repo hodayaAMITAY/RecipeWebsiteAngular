@@ -1,0 +1,11 @@
+<div  class="jjjj">
+<h1>{{myarr?.recipeName}}</h1>
+<h3> categorey:{{myarr?.recipeCategory.name}}</h3>
+<h3> making :{{myarr?.time|filesize}}</h3>
+<h3>level:{{myarr?.level|DifficultyPipe}}</h3>
+<h3>Upload Date:{{myarr?.dateInsert| date: 'dd/MM/yyyy'}}</h3>
+<h3>ingridience:<p *ngFor="let x of myarr?.listIngrediens">🥧{{x}}</p> </h3>
+<h3>makingMethod:<p *ngFor="let x of myarr?.make">🥄{{x}}</p> </h3>
+<h3>user:{{myarr?.user.userName}}</h3>
+<a *ngIf="link"  routerLink="/edit/{{myarr?.recipeName}}">הקש לעריכת מתכון</a>
+</div>

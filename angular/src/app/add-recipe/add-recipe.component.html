@@ -1,0 +1,35 @@
+<h1>{{r.recipeName}}</h1>
+<div class="hhh">
+קטגוריה:<br><select [(ngModel)]="r.recipeCategory.name" (ngModelChange)="FindCategory()">
+    <option *ngFor="let x of categoryArr">{{x.name}}</option>
+</select><br>
+
+
+
+:שם מתכון<br>
+<input type="text" [(ngModel)]="r.recipeName">
+<br>
+:זמן הכנה בדקות<br>
+<input type="number" [(ngModel)]="r.time">
+<br>
+:רמה <br>
+<input type="number" [(ngModel)]="r.level">
+<br>
+:הוספת תמונה<br>
+<input type="file" [(ngModel)]="r.picture">
+<br>
+:מצרכים<br>
+<div id="PRODUCTE">
+    <div *ngFor="let x of r.listIngrediens;let i=index;trackBy:trackByFn">
+        <input type="text" (input)="addRowIngridience(i)" [(ngModel)]="r.listIngrediens[i]">
+    </div>
+</div>
+<br>
+:הוראות הכנה<br>
+<div id="MAKE">
+    <div *ngFor="let f of r.make;let n=index;trackBy:trackByFn">
+        <input type="text" (input)="addsomthing(n)" [(ngModel)]="r.make[n]">
+    </div>
+</div><br>
+<input type="button" value="הוספת מתכון" (click)="addrecipe111()">
+</div>

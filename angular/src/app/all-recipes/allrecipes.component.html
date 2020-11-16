@@ -1,0 +1,18 @@
+<div style="text-align: right;font-family:cursive ;"> 
+<b style="font-size: 30px;color: black;">{{u}}:משתמש נוכחי</b>
+</div>
+<div>
+לפי שם מתכון:<input type="text" [(ngModel)]="name">
+קטגוריה:<select [(ngModel)]="category"> 
+    <option *ngFor="let x of categoryArr" >{{x.name}}</option>
+</select>
+
+לפי זמן הכנה<input type="number" [(ngModel)]="time">
+<input type="button" value="סינון" (click)="search()">
+<input type="button" value="נקה סינון" (click)="clean()">
+<input type="button" *ngIf="u" value="הוספת מתכון" (click)="addRecipe()"> 
+</div>
+
+<app-recipe-in-short style="float: left;margin-right: 20px; margin-bottom: 20px;"
+ *ngFor="let item of arr" [myrecipenow]="item"></app-recipe-in-short>
+<!--<img src="../../assets/ZKZg.gif" height="100px" width="100px">-->

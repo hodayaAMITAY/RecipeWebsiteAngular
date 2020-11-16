@@ -1,0 +1,39 @@
+
+<!-- 
+שם משתמש:<input type="text" [(ngModel)]="u.userName" ><br>
+סיסמה<input type="text" [(ngModel)]="u.userPassword" ><br> -->
+
+<div style=" font-size: 19px;
+font-weight: bold;"> 
+
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+<div>
+    <label >שם משתמש</label><br>
+    <input type="text"  id="name" name="name" #uname="ngModel" required [(ngModel)]="u.userName" 
+    minlength="4" maxlength="14" pattern="[a-zA-Z0-9]*" #ft01>
+    <div *ngIf="uname.errors&&(uname.dirty||uname.touched)">
+        <div [hidden]="!uname.errors.required">זהו שדה חובה</div>
+        <div [hidden]="!uname.errors.minlength">יש להקיש מינימום 4 תווים</div>
+        <div [hidden]="!uname.errors.maxlength">יש להקיש מקסימום 14 תווים</div>
+        <div [hidden]="!uname.errors.pattern">יש להקיש אותיות אנגלית</div>
+    </div>
+    <br>
+
+
+    <label>סיסמא</label><br>
+    <input type="password"  id="password" name="password" #upassword="ngModel" required [(ngModel)]="u.userPassword" 
+    minlength="6" maxlength="16" pattern="[0-9]*">
+    <div *ngIf="upassword.errors&&(upassword.dirty||upassword.touched)">
+        <div [hidden]="!upassword.errors.required">זהו שדה חובה</div>
+        <div [hidden]="!upassword.errors.minlength">יש להקיש מינימום 6 תווים</div>
+        <div [hidden]="!upassword.errors.maxlength">יש להקיש מקסימום 16 תווים</div>
+
+    </div>
+    
+</div>
+<input type="submit" value="היכנס"  [disabled]="!loginForm.form.valid" >
+</form>
+</div>
+
+
+
